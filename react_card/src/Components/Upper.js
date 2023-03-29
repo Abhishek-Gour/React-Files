@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, Outlet } from 'react-router-dom'
 import './Upper.css'
 export default function Upper() {
     return (
@@ -14,6 +14,7 @@ export default function Upper() {
                         <li><NavLink to='/form' className='navBarLink'>Login</NavLink></li><br />
                     </ul>
                 </nav>
+                <Outlet/>
             </div>
         </div>
     )

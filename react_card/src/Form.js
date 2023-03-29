@@ -2,16 +2,14 @@
 import React, { useEffect, useState } from 'react'
 import { Navigate, useNavigate } from 'react-router-dom';
 export default function Form() {
-  const login = () => {
-    localStorage.setItem('login', true);
-  }
   const navigate = useNavigate();
-  useEffect(() => {
-    let login = localStorage.getItem('login');
+  const login = () => {
+    let login = localStorage.getItem('login',true);
     if (login) {
       navigate('/')
     }
-  })
+  }
+
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
@@ -44,7 +42,7 @@ export default function Form() {
             <input type="password" value={formData.confirmPassword} onChange={handleInput} placeholder='Confirm-Password:' name='confirmPassword' />
           </div>
           <div>
-            <button className='btn' onClick='login'>Creat account</button>
+            <button className='btn' onClick={login}>Creat account</button>
             <p>{formData.userName} {formData.password}</p>
           </div>
         </form>
